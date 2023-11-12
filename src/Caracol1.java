@@ -1,5 +1,5 @@
 class Caracol1 extends Thread {
-    private Carrera carrera;
+    final private Carrera carrera;
 
     public Caracol1(Carrera carrera) {
         this.carrera = carrera;
@@ -22,15 +22,15 @@ class Caracol1 extends Thread {
             System.out.println("Caracol " + numeroCaracol + " empezó la carrera.");
 
             // Simular el tiempo que tarda en correr
-            Thread.sleep(tiempoCarrera * 1000);
+            Thread.sleep((long) tiempoCarrera * 1000);
 
             // Imprimir que ha terminado la carrera
             System.out.println("Caracol " + numeroCaracol + " terminó la carrera en " + tiempoCarrera + " segundos.");
 
             // Pasar la banderita al siguiente caracol (en orden)
-            int siguienteCaracol = (numeroCaracol % carrera.obtenerNumCaracoles()) + 1;
             synchronized (carrera.obtenerBanderita()) {
-                System.out.println("Caracol " + numeroCaracol + " pasa la banderita al siguiente caracol.");
+                int siguienteCaracol = (numeroCaracol % carrera.obtenerNumCaracoles()) + 1;
+                System.out.println("Caracol " + numeroCaracol + " pasa la banderita al siguiente caracol: " + siguienteCaracol);
                 carrera.obtenerBanderita().notify();
             }
 
@@ -40,5 +40,4 @@ class Caracol1 extends Thread {
             e.printStackTrace();
         }
     }
-
 }

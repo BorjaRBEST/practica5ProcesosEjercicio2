@@ -47,13 +47,9 @@ class Carrera {
         // Esperar a que todos los caracoles terminen
         try {
             caracol1.join();
-            System.out.println("Caracol 1 ha terminado.");
             caracol2.join();
-            System.out.println("Caracol 2 ha terminado.");
             caracol3.join();
-            System.out.println("Caracol 3 ha terminado.");
             caracol4.join();
-            System.out.println("Caracol 4 ha terminado.");
 
             System.out.println("Tiempo total de la carrera: " + obtenerTiempoTotal() + " segundos.");
         } catch (InterruptedException e) {

@@ -1,5 +1,5 @@
 class Caracol4 extends Thread {
-    private Carrera carrera;
+    final private Carrera carrera;
 
     public Caracol4(Carrera carrera) {
         this.carrera = carrera;
@@ -22,7 +22,7 @@ class Caracol4 extends Thread {
             System.out.println("Caracol " + numeroCaracol + " empezó la carrera.");
 
             // Simular el tiempo que tarda en correr
-            Thread.sleep(tiempoCarrera * 1000);
+            Thread.sleep((long)tiempoCarrera * 1000);
 
             // Imprimir que ha terminado la carrera
             System.out.println("Caracol " + numeroCaracol + " terminó la carrera en " + tiempoCarrera + " segundos.");
